@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
 
-    <form method="POST" novalidate>
+       <form method="POST" novalidate data-validar="producto">
         <div class="mb-3">
             <label class="form-label">Código *</label>
             <input type="text" name="codigo" class="form-control" required
@@ -111,5 +111,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="../index.php" class="btn btn-outline-secondary">Cancelar</a>
     </form>
 </div>
+   <script src="../js/validaciones.js"></script>
 </body>
 </html>

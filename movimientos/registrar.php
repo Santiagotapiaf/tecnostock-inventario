@@ -94,13 +94,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="alert alert-success"><?= htmlspecialchars($exito) ?></div>
     <?php endif; ?>
 
-    <form method="POST" novalidate>
+    <form method="POST" novalidate data-validar="movimiento">
         <div class="mb-3">
             <label class="form-label">Producto *</label>
             <select name="id_producto" class="form-select" required>
                 <option value="">Selecciona un producto</option>
                 <?php foreach ($productos as $p): ?>
-                    <option value="<?= $p['id_producto'] ?>">
+                    <option value="<?= $p['id_producto'] ?>" data-stock="<?= $p['stock_actual'] ?>">
                         <?= htmlspecialchars($p['codigo'] . ' - ' . $p['nombre']) ?> (Stock: <?= $p['stock_actual'] ?>)
                     </option>
                 <?php endforeach; ?>
@@ -129,5 +129,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit" class="btn btn-primary">Registrar movimiento</button>
     </form>
 </div>
+<script src="../js/validaciones.js"></script>
 </body>
 </html>
