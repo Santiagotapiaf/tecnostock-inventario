@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                       SET codigo = ?, nombre = ?, descripcion = ?, precio = ?, stock_actual = ?, stock_minimo = ?, id_categoria = ?
                                       WHERE id_producto = ?");
             $update->execute([$codigo, $nombre, $descripcion, $precio, $stockActual, $stockMinimo, $idCategoria, $id]);
+                        $_SESSION['mensaje'] = 'Producto actualizado correctamente.';
 
             header('Location: ../index.php');
             exit;

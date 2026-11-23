@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $pdo->prepare("INSERT INTO producto (codigo, nombre, descripcion, precio, stock_actual, stock_minimo, estado, id_categoria)
                                     VALUES (?, ?, ?, ?, ?, ?, 1, ?)");
             $stmt->execute([$codigo, $nombre, $descripcion, $precio, $stockActual, $stockMinimo, $idCategoria]);
-
+            $_SESSION['mensaje'] = 'Producto creado correctamente.';
             header('Location: ../index.php');
             exit;
         }

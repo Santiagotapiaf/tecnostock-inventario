@@ -13,6 +13,7 @@ if ($id) {
     // Nunca se borra el registro (DELETE), solo se cambia el estado (RN5)
     $stmt = $pdo->prepare("UPDATE producto SET estado = 0 WHERE id_producto = ?");
     $stmt->execute([$id]);
+    $_SESSION['mensaje'] = 'Producto desactivado correctamente.';
 }
 
 header('Location: ../index.php');
